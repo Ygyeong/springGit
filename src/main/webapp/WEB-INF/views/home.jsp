@@ -27,17 +27,20 @@
 		$("#signup").on("click", function() {
 			location.href = "/member/signup";
 		})
+
 		$("#boardBtn").on("click",function(){
 			location.href = "board/boardlist";
 		})
 
+
 		
-		$("#boardBtn").on("click", function() {
-			location.href = "/board/list";
-
+		$("#boardBtn").on("click", function(){
+			location.href = "/"
 		})
-
-	})
+		
+		$("#boardBtn").on("click",function(){
+			location.href="/board/list";
+		})
 </script>
 <style>
 .wrapper {
@@ -85,11 +88,9 @@
 </style>
 </head>
 <body>
-
 	<c:choose>
 		<c:when test="${loginID==null }">
-			<div class="container p-3 col-12"
-				style="width: 30%; height: 30%; margin-top: 10%; border: 1px solid rgb(141, 137, 137); border-radius: 10px;">
+			<div class="container p-3 col-12" style="width: 30%; height: 30%; margin-top: 10%; border: 1px solid rgb(141, 137, 137); border-radius: 10px;">
 				<form action="/member/loginProc" method="post">
 					<h3>로그인</h3>
 					<div class="form-group">

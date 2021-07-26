@@ -22,9 +22,36 @@ public class BoardController {
 	private BoardDAO dao;
 	
 	@Autowired
-	private HttpSession session;
-	
 	private PagingVO vo;
+	
+	@Autowired
+	private HttpSession session;
+
+	//수정화면 이동
+	@RequestMapping("modifyForm")
+	public String modifyForm() {
+		System.out.println("수정 화면 전환");
+		return "board/writeModify";
+	}
+	
+	//수정
+	@RequestMapping("modifyProc")
+	public String modify(BoardDTO dto) throws Exception {
+		System.out.println("수정 요청 확인");
+		int result = dao.modify(dto);
+		return "home";
+	}
+	
+	@RequestMapping("delete")
+	public String delete(int board_seq) throws Exception {
+		System.out.println("삭제 요청 확인");
+		int result = dao.delete(board_seq);
+		return "home";
+	}
+	
+
+	
+	
 	
 	@RequestMapping("boardlist")
 	public String boardList() {

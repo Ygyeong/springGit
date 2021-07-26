@@ -1,5 +1,6 @@
 package kh.spring.dao;
 
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -18,12 +19,21 @@ import kh.spring.vo.PagingVO;
 @Repository
 public class BoardDAO {
 
-
+	
 	@Autowired
 	private JdbcTemplate jdbc;
 	
-	@Autowired
-	private BoardDAO dao;
+	// 수정
+	public int modify(BoardDTO dto) {
+		String sql = "update board set title=?, contents=? where board_seq=?";
+		return jdbc.update(sql, dto.getTitle(), dto.getContents(), dto.getBoard_seq());
+	}
+	// 삭제
+	public int delete(int board_seq) {
+		String sql = "delete from board where board_seq = ?";
+		return jdbc.update(sql, board_seq);
+	}
+
 	
 	@Autowired
 	private HttpSession session;

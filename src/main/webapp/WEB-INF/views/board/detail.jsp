@@ -65,7 +65,7 @@
 				<div class="contents">${list.contents}</div>
 				<div class="btn_wrap" align="right">
 					<c:choose>
-						<c:when test="${login.id eq list.id}">
+						<c:when test="${loginID eq list.id}">
 							<a
 								href="${pageContext.request.contextPath}/modifyPage.bor?board_seq=${list.board_seq}"
 								class="btn btn-warning"
