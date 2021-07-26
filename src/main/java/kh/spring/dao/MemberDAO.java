@@ -1,5 +1,5 @@
+package kh.spring.dao;
 
-	package kh.spring.dao;
 
 
 import org.springframework.beans.factory.annotation.Autowired;

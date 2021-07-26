@@ -22,7 +22,11 @@ public class BoardController {
 	private BoardDAO dao;
 	
 	@Autowired
+	private PagingVO vo;
+	
+	@Autowired
 	private HttpSession session;
+
 	//수정화면 이동
 	@RequestMapping("modifyForm")
 	public String modifyForm() {
@@ -44,9 +48,6 @@ public class BoardController {
 		int result = dao.delete(board_seq);
 		return "home";
 	}
-	
-	
-	private PagingVO vo;
 	
 	@RequestMapping("boardlist")
 	public String boardList() {
