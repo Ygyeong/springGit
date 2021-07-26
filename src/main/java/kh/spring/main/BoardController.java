@@ -49,10 +49,6 @@ public class BoardController {
 		return "home";
 	}
 	
-
-	
-	
-	
 	@RequestMapping("boardlist")
 	public String boardList() {
 		return "board/boardlist";
