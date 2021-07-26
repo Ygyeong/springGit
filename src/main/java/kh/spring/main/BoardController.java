@@ -23,8 +23,17 @@ public class BoardController {
 	
 	@Autowired
 	private HttpSession session;
-<<<<<<< HEAD
-
+	
+	private PagingVO vo;
+	
+	//수정
+	@RequestMapping("modifyProc")
+	public String modify(BoardDTO dto) throws Exception {
+		System.out.println("수정 요청 확인");
+		int result = dao.modify(dto);
+		return "home";
+	}
+	
 	//수정화면 이동
 	@RequestMapping("modifyForm")
 	public String modifyForm() {
@@ -32,24 +41,12 @@ public class BoardController {
 		return "board/writeModify";
 	}
 	
-	//수정
-	@RequestMapping("modifyProc")
-	public String modify(BoardDTO dto) throws Exception {
-		System.out.println("수정 요청 확인");
-		int result = bdao.modify(dto);
-		return "home";
-	}
-	
 	@RequestMapping("delete")
 	public String delete(int board_seq) throws Exception {
 		System.out.println("삭제 요청 확인");
-		int result = bdao.delete(board_seq);
+		int result = dao.delete(board_seq);
 		return "home";
 	}
-	
-=======
-	
-	private PagingVO vo;
 	
 	@RequestMapping("boardlist")
 	public String boardList() {
@@ -82,9 +79,8 @@ public class BoardController {
 			vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 			model.addAttribute("paging", vo);
 			model.addAttribute("viewAll", dao.SelectBoard(vo));
-		return "board/boardlist";
-	}	
->>>>>>> dbd438b97f6108b7a3909edf87cb49028a06f040
+		return "board/list";
+	}
 	@RequestMapping(value="detail" ,method=RequestMethod.GET)
 	public String detail(Model model,int board_seq) throws Exception{
 		BoardDTO dto = dao.detail(board_seq);
