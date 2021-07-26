@@ -11,29 +11,31 @@
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 <body>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
-	<script>
-		$(function() {
-			$("#logout").on("click", function() {
-				location.href = "/member/logout";
-			})
-			$("#memberOut").on("click", function() {
-				let result = confirm("정말 탈퇴하시겠습니까?");
-				if (result) {
-					location.href = "/member/memberOut";
-				}
-			})
-			$("#signup").on("click", function() {
-				location.href = "/member/signup";
-			})
 
-			$("#boardBtn").on("click", function() {
-				location.href = "/board/list";
-			})
-
+<script	src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+	$(function() {
+		$("#logout").on("click", function() {
+			location.href = "/member/logout";
 		})
-	</script>
+		$("#memberOut").on("click", function() {
+			let result = confirm("정말 탈퇴하시겠습니까?");
+			if (result) {
+				location.href = "/member/memberOut";
+			}
+		})
+		$("#signup").on("click", function() {
+			location.href = "/member/signup";
+		})
+
+		$("#boardBtn").on("click",function(){
+			location.href ="/board/list";
+		})
+		
+	})
+		
+</script>
+
 <style>
 .wrapper {
 	margin: auto;

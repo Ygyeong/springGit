@@ -67,8 +67,12 @@
 				<div class="btn_wrap" align="right">
 					<c:choose>
 						<c:when test="${loginID eq list.id}">
-							<a href="/board/modifyForm?board_seq=${list.board_seq}" class="btn btn-warning" style="background-color: #ffc107; color: white">수정</a>
-							<a href="#boardDeleteForm" class="btn btn-danger" data-toggle="modal">삭제</a>
+							<a
+								href="/board/modifyForm?board_seq=${list.board_seq}"
+								class="btn btn-warning"
+								style="background-color: #ffc107; color: white">수정</a>
+							<a href="#boardDeleteForm" class="btn btn-danger"
+								data-toggle="modal">삭제</a>
 						</c:when>
 					</c:choose>
 					<a href="/board/list" id="backBtn" class="btn btn-default pull-left"

@@ -27,13 +27,6 @@ public class BoardController {
 	@Autowired
 	private HttpSession session;
 
-	//수정화면 이동
-	@RequestMapping("modifyForm")
-	public String modifyForm() {
-		System.out.println("수정 화면 전환");
-		return "board/writeModify";
-	}
-	
 	//수정
 	@RequestMapping("modifyProc")
 	public String modify(BoardDTO dto) throws Exception {
@@ -42,16 +35,20 @@ public class BoardController {
 		return "home";
 	}
 	
+	//수정화면 이동
+	@RequestMapping(value="modifyForm" , method=RequestMethod.GET)
+	public String modifyForm(Model model, int board_seq) throws Exception {
+		System.out.println("수정 화면 전환");
+		BoardDTO dto = dao.modifyView(board_seq);
+		model.addAttribute("list",dto);
+		return "board/writeModify";
+	}
+	
 	@RequestMapping("delete")
 	public String delete(int board_seq) throws Exception {
 		System.out.println("삭제 요청 확인");
 		int result = dao.delete(board_seq);
 		return "home";
-	}
-	
-	@RequestMapping("boardlist")
-	public String boardList() {
-		return "board/boardlist";
 	}
 	
 	@RequestMapping("boardWrite")
@@ -81,7 +78,8 @@ public class BoardController {
 			model.addAttribute("paging", vo);
 			model.addAttribute("viewAll", dao.SelectBoard(vo));
 		return "board/boardlist";
-	}	
+	}
+
 	@RequestMapping(value="detail" ,method=RequestMethod.GET)
 	public String detail(Model model,int board_seq) throws Exception{
 		BoardDTO dto = dao.detail(board_seq);

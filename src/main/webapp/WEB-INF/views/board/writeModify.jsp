@@ -50,24 +50,24 @@
 <body>
 	<form action="" method="post" id="listFrm">
 		<!-- page title -->
-	    <div id="pageTitle">
-	        <h2> 글 수정 </h2>
-	    </div>
-	    
-	    <!--  modify box -->
-	    <div id="modiBox">
-	    	<input type="text" name="board_seq" value="1">
-	        <div id="title">제목: <input type="text" name="title"> </div>
-	    <hr>
-	        <div id="contents"><textarea name="contents"></textarea></div>
-	    </div>
-	    
-	    <!-- button -->
-	    <div id="btnBox">
-	        <button class="btn btn-success" id="modify">수정</button>   
-	        <button class="btn btn-danger" id="delete">삭제</button>
-	        <button class="btn btn-outline-danger" id="back">뒤로</button>
-	    </div>
+			<div id="pageTitle">
+		        <h2> 글 수정 </h2>
+		    </div>
+		    
+		    <!--  modify box -->
+		    <div id="modiBox">
+		    	<input type="hidden" name="board_seq" value="${list.board_seq }">
+		        <div id="title">제목: <input type="text" name="title" value="${list.title }"> </div>
+		    <hr>
+		        <div id="contents"><textarea name="contents" value="${list.contents }"></textarea></div>
+		    </div>
+		    
+		    <!-- button -->
+		    <div id="btnBox">
+		        <button class="btn btn-success" id="modify">수정</button>   
+		        <button class="btn btn-danger" id="delete">삭제</button>
+		        <button class="btn btn-outline-danger" id="back">뒤로</button>
+		    </div>
 	</form>
 
 </body>
