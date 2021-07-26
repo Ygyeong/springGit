@@ -22,9 +22,22 @@ public class BoardController {
 	private BoardDAO dao;
 	
 	@Autowired
+	private PagingVO vo;
+	
+	@Autowired
 	private HttpSession session;
+<<<<<<< HEAD
 	
 	private PagingVO vo;
+=======
+
+	//수정화면 이동
+	@RequestMapping("modifyForm")
+	public String modifyForm() {
+		System.out.println("수정 화면 전환");
+		return "board/writeModify";
+	}
+>>>>>>> 700ab0c9acec854031cec98f4912d9082f29063c
 	
 	//수정
 	@RequestMapping("modifyProc")
@@ -48,6 +61,14 @@ public class BoardController {
 		return "home";
 	}
 	
+<<<<<<< HEAD
+=======
+	@RequestMapping("boardlist")
+	public String boardList() {
+		return "board/boardlist";
+	}
+	
+>>>>>>> 700ab0c9acec854031cec98f4912d9082f29063c
 	@RequestMapping("boardWrite")
 	public String boardWrite() {
 		return "board/boardWrite";
@@ -75,7 +96,11 @@ public class BoardController {
 			model.addAttribute("paging", vo);
 			model.addAttribute("viewAll", dao.SelectBoard(vo));
 		return "board/boardlist";
+<<<<<<< HEAD
 	}
+=======
+	}	
+>>>>>>> 700ab0c9acec854031cec98f4912d9082f29063c
 	@RequestMapping(value="detail" ,method=RequestMethod.GET)
 	public String detail(Model model,int board_seq) throws Exception{
 		BoardDTO dto = dao.detail(board_seq);
