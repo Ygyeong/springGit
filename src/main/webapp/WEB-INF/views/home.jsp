@@ -29,7 +29,7 @@
 		})
 
 		$("#boardBtn").on("click",function(){
-			location.href ="/board/boardlist";
+			location.href ="/board/list";
 		})
 		
 	})

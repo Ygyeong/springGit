@@ -48,11 +48,6 @@ public class BoardController {
 		return "home";
 	}
 	
-	@RequestMapping("boardlist")
-	public String boardList() {
-		return "board/boardlist";
-	}
-	
 	@RequestMapping("boardWrite")
 	public String boardWrite() {
 		return "board/boardWrite";
@@ -79,7 +74,7 @@ public class BoardController {
 			vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 			model.addAttribute("paging", vo);
 			model.addAttribute("viewAll", dao.SelectBoard(vo));
-		return "board/list";
+		return "board/boardlist";
 	}
 	@RequestMapping(value="detail" ,method=RequestMethod.GET)
 	public String detail(Model model,int board_seq) throws Exception{
