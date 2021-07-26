@@ -26,19 +26,7 @@ public class BoardController {
 	
 	@Autowired
 	private HttpSession session;
-<<<<<<< HEAD
-	
-	private PagingVO vo;
-=======
 
-	//수정화면 이동
-	@RequestMapping("modifyForm")
-	public String modifyForm() {
-		System.out.println("수정 화면 전환");
-		return "board/writeModify";
-	}
->>>>>>> 700ab0c9acec854031cec98f4912d9082f29063c
-	
 	//수정
 	@RequestMapping("modifyProc")
 	public String modify(BoardDTO dto) throws Exception {
@@ -48,9 +36,11 @@ public class BoardController {
 	}
 	
 	//수정화면 이동
-	@RequestMapping("modifyForm")
-	public String modifyForm() {
+	@RequestMapping(value="modifyForm" , method=RequestMethod.GET)
+	public String modifyForm(Model model, int board_seq) throws Exception {
 		System.out.println("수정 화면 전환");
+		BoardDTO dto = dao.modifyView(board_seq);
+		model.addAttribute("list",dto);
 		return "board/writeModify";
 	}
 	
@@ -61,14 +51,6 @@ public class BoardController {
 		return "home";
 	}
 	
-<<<<<<< HEAD
-=======
-	@RequestMapping("boardlist")
-	public String boardList() {
-		return "board/boardlist";
-	}
-	
->>>>>>> 700ab0c9acec854031cec98f4912d9082f29063c
 	@RequestMapping("boardWrite")
 	public String boardWrite() {
 		return "board/boardWrite";
@@ -96,11 +78,8 @@ public class BoardController {
 			model.addAttribute("paging", vo);
 			model.addAttribute("viewAll", dao.SelectBoard(vo));
 		return "board/boardlist";
-<<<<<<< HEAD
 	}
-=======
-	}	
->>>>>>> 700ab0c9acec854031cec98f4912d9082f29063c
+
 	@RequestMapping(value="detail" ,method=RequestMethod.GET)
 	public String detail(Model model,int board_seq) throws Exception{
 		BoardDTO dto = dao.detail(board_seq);

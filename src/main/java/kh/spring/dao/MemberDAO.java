@@ -1,9 +1,4 @@
 package kh.spring.dao;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 700ab0c9acec854031cec98f4912d9082f29063c
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
